@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "VOSWordsModel.h"
+#import "VOSWordsTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +20,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // Create the model
+    VOSWordsModel * model = [[VOSWordsModel alloc] init];
+    
+    // Create the Controller
+    VOSWordsTableViewController * wordsVC = [[VOSWordsTableViewController alloc] initWithModel:model style:UITableViewStylePlain];
+    
+    // Create the combinators
+    UINavigationController * tableNav = [[UINavigationController alloc] init];
+    [tableNav pushViewController:wordsVC animated:NO];
+    
+    
+    // Asigne the Controller like Root
+    self.window.rootViewController = wordsVC;
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
