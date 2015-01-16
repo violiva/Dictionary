@@ -7,9 +7,9 @@
 //
 
 @import UIKit;
-#import "VOSWordsModel.h"
+#import "VOSWordsTableViewController.h"
 
-@interface VOSDescriptionViewController : UIViewController
+@interface VOSDescriptionViewController : UIViewController <UIWebViewDelegate, VOSWordsTableViewControllerDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) NSString * word;
 
@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView * browser;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView * activityView;
 
-// -(id) initWithModel:(VOSStarWarsCharacter *) model;
+-(id) initWithModel:(NSString *) model;
 
 
 @end

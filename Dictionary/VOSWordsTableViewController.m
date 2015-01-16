@@ -9,20 +9,23 @@
 #import "VOSWordsTableViewController.h"
 #import "VOSWordsModel.h"
 
+
 @interface VOSWordsTableViewController ()
 
+@property (strong, nonatomic) VOSWordsModel * model;
+
 @end
+
 
 @implementation VOSWordsTableViewController
 
 -(id) initWithModel: (VOSWordsModel *) model
               style:(UITableViewStyle) style{
+
     if (self = [super initWithStyle:style] ){
         _model = model;
         self.title = @"English Vocabulary";
     }
-
-    
     return self;
     
 }
@@ -52,9 +55,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    
-    NSLog(@"%d", [[self.model wordsAtIndex:section] count]);
-    
     return [[self.model wordsAtIndex:section] count];
 }
 
@@ -65,8 +65,6 @@
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog( @"%d %d", indexPath.section, indexPath.row);
-
     // Reuse ID
     static NSString * cellID = @"WordsCell";
     
@@ -84,7 +82,6 @@
     // sincronizar el modelo (palabra) -> Vista (celda)
     cell.textLabel.text = word;
 
-//    NSLog( @"%d %d", indexPath.section, indexPath.row);
     // la devuelvo
     return cell;
 }

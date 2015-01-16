@@ -7,13 +7,34 @@
 //
 
 @import UIKit;
-@class VOSWordsModel;
+@class VOSWordsModel, VOSWordsTableViewController;
 
-@interface VOSWordsTableViewController : UITableViewController
 
-@property (strong, nonatomic) VOSWordsModel * model;
+@protocol VOSWordsTableViewControllerDelegate <NSObject>
+
+// <#methods#>
+@optional
+-(void) wordsTableViewController:(VOSWordsTableViewController *) uVC didSelectCharacter:(NSString *) word;
+
+-(void) wordsTableViewController:(VOSWordsTableViewController *) uVC willSelectCharacter:(NSString *) word;
+
+@end
+
+
+@interface VOSWordsTableViewController : UITableViewController <VOSWordsTableViewControllerDelegate>
+
+@property (weak, nonatomic) id<VOSWordsTableViewControllerDelegate> delegate;
 
 -(id) initWithModel: (VOSWordsModel *) model
               style:(UITableViewStyle) style;
 
 @end
+
+
+
+
+
+
+
+
+

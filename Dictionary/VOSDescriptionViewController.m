@@ -8,17 +8,13 @@
 
 #import "VOSDescriptionViewController.h"
 
-@interface VOSDescriptionViewController ()
-
-@end
-
 @implementation VOSDescriptionViewController
 
-
--(id) init{
+-(id) initWithModel:(NSString *) model{
     if (self = [super init]){
-        _word = @"Succinct";
-        self.title = @"Succinct";
+        _word = model;
+        self.title = model;
+        
     }
     return self;
 }
@@ -41,8 +37,8 @@
 
 -(void) viewWillAppear:(BOOL)animated{      // aqui ya existe la vista y tiene tamaño correcto
     [super viewWillAppear:animated];
-
-    [self.browser loadRequest:[self definitionRequestForWord:@"Succinct"]];
+    
+    [self.browser loadRequest:[self definitionRequestForWord:[self word]]];
 }
 
 
