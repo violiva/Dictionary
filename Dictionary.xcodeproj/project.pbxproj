@@ -15,6 +15,8 @@
 		ADE9735D1A69156E00A7FA1C /* vocabwords.txt in Resources */ = {isa = PBXBuildFile; fileRef = ADE9735C1A69156E00A7FA1C /* vocabwords.txt */; };
 		ADE973601A6915DD00A7FA1C /* VOSWordsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE9735F1A6915DD00A7FA1C /* VOSWordsModel.m */; };
 		ADE973651A691D8A00A7FA1C /* VOSWordsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE973631A691D8A00A7FA1C /* VOSWordsTableViewController.m */; };
+		ADE9736B1A69471800A7FA1C /* VOSDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE973691A69471800A7FA1C /* VOSDescriptionViewController.m */; };
+		ADE9736C1A69471800A7FA1C /* VOSDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE9736A1A69471800A7FA1C /* VOSDescriptionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,9 @@
 		ADE9735F1A6915DD00A7FA1C /* VOSWordsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSWordsModel.m; sourceTree = "<group>"; };
 		ADE973621A691D8A00A7FA1C /* VOSWordsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSWordsTableViewController.h; sourceTree = "<group>"; };
 		ADE973631A691D8A00A7FA1C /* VOSWordsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSWordsTableViewController.m; sourceTree = "<group>"; };
+		ADE973681A69471800A7FA1C /* VOSDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSDescriptionViewController.h; sourceTree = "<group>"; };
+		ADE973691A69471800A7FA1C /* VOSDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSDescriptionViewController.m; sourceTree = "<group>"; };
+		ADE9736A1A69471800A7FA1C /* VOSDescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VOSDescriptionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +149,9 @@
 			children = (
 				ADE973621A691D8A00A7FA1C /* VOSWordsTableViewController.h */,
 				ADE973631A691D8A00A7FA1C /* VOSWordsTableViewController.m */,
+				ADE973681A69471800A7FA1C /* VOSDescriptionViewController.h */,
+				ADE973691A69471800A7FA1C /* VOSDescriptionViewController.m */,
+				ADE9736A1A69471800A7FA1C /* VOSDescriptionViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -228,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADE9736C1A69471800A7FA1C /* VOSDescriptionViewController.xib in Resources */,
 				ADE973461A6914D100A7FA1C /* LaunchScreen.xib in Resources */,
 				ADE9735D1A69156E00A7FA1C /* vocabwords.txt in Resources */,
 				ADE973431A6914D100A7FA1C /* Images.xcassets in Resources */,
@@ -250,6 +259,7 @@
 			files = (
 				ADE973411A6914D100A7FA1C /* AppDelegate.m in Sources */,
 				ADE973601A6915DD00A7FA1C /* VOSWordsModel.m in Sources */,
+				ADE9736B1A69471800A7FA1C /* VOSDescriptionViewController.m in Sources */,
 				ADE973651A691D8A00A7FA1C /* VOSWordsTableViewController.m in Sources */,
 				ADE9733E1A6914D100A7FA1C /* main.m in Sources */,
 			);

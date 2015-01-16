@@ -14,15 +14,47 @@
 
 @implementation VOSDescriptionViewController
 
+
+-(id) init{
+    if (self = [super init]){
+        _word = @"Succinct";
+        self.title = @"Succinct";
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void) webViewDidFinishLoad:(UIWebView *) webView{
+    [self.activityView stopAnimating];
+    self.activityView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void) viewWillAppear:(BOOL)animated{      // aqui ya existe la vista y tiene tamaño correcto
+    [super viewWillAppear:animated];
+
+    [self.browser loadRequest:[self definitionRequestForWord:@"Succinct"]];
+}
+
+
+-(NSURLRequest *) definitionRequestForWord: (NSString *) aWord{
+    NSURL *url = [NSURL URLWithString:
+                  [NSString stringWithFormat:@"http://www.merriam-webster.com/dictionary/%@", aWord]];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    return request;
+}
+
+
 
 /*
 #pragma mark - Navigation

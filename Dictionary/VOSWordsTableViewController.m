@@ -53,21 +53,26 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     
-//    NSLog(@"%d", [[self.model wordsAtIndex:section] count]);
+    NSLog(@"%d", [[self.model wordsAtIndex:section] count]);
     
     return [[self.model wordsAtIndex:section] count];
+}
+
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return [self.model letterAtIndex:section];
 }
 
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NSLog( @"%d %d", indexPath.section, indexPath.row);
+
     // Reuse ID
     static NSString * cellID = @"WordsCell";
     
     // Averiguar de qué palabra se trata
-    NSString * word = [self.model wordAtIndex:indexPath.section inLetterAtIndex: indexPath.row];
+    NSString * word = [self.model wordAtIndex:indexPath.row inLetterAtIndex: indexPath.section];
 
-    
     // crear una celda
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil){
@@ -78,8 +83,8 @@
     
     // sincronizar el modelo (palabra) -> Vista (celda)
     cell.textLabel.text = word;
-    
-    
+
+//    NSLog( @"%d %d", indexPath.section, indexPath.row);
     // la devuelvo
     return cell;
 }
