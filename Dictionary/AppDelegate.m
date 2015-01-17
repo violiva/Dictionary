@@ -21,19 +21,16 @@
     // Create the model
     VOSWordsModel * dictionary = [[VOSWordsModel alloc] init];
     
-    // Creamos los controladores
+    // Create the Controllers
     VOSWordsTableViewController * dicVC = [[VOSWordsTableViewController alloc] initWithModel:dictionary
                                                                                        style:UITableViewStylePlain];
     VOSDescriptionViewController * defVC = [[VOSDescriptionViewController alloc] initWithModel:[dictionary wordAtIndex:0 inLetterAtIndex:0]];
 
-    
-    // Create the combinators
-    UINavigationController * dicNav = [[UINavigationController alloc] init];
-    [dicNav pushViewController:dicVC animated:NO];
+    // Create the Navigation Controllers
+    UINavigationController * dicNav = [[UINavigationController alloc] initWithRootViewController:dicVC];
+    UINavigationController * defNav = [[UINavigationController alloc] initWithRootViewController:defVC];
 
-    UINavigationController * defNav = [[UINavigationController alloc] init];
-    [defNav pushViewController:defVC animated:NO];
-
+    // Create the combiner
     UISplitViewController * splitVC = [[UISplitViewController alloc] init];
     [splitVC setViewControllers:@[dicNav, defNav]];
 

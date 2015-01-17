@@ -10,6 +10,7 @@
 
 @implementation VOSDescriptionViewController
 
+#pragma mark - Init
 -(id) initWithModel:(NSString *) model{
     if (self = [super init]){
         _word = model;
@@ -19,7 +20,7 @@
     return self;
 }
 
-
+#pragma mark - UIWebViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -27,7 +28,7 @@
 
 -(void) webViewDidFinishLoad:(UIWebView *) webView{
     [self.activityView stopAnimating];
-    self.activityView.hidden = YES;
+    [self.activityView setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,6 +38,12 @@
 
 -(void) viewWillAppear:(BOOL)animated{      // aqui ya existe la vista y tiene tamaño correcto
     [super viewWillAppear:animated];
+
+    // Asignamos el delegado
+    self.browser.delegate = self;
+
+    [self.activityView startAnimating];
+    [self.activityView setHidden:NO];
     
     [self.browser loadRequest:[self definitionRequestForWord:[self word]]];
 }
@@ -51,15 +58,31 @@
 }
 
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UISplitViewControllerDelegate
+-(void)splitViewController:(UISplitViewController *)svc
+   willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode{
+    if (displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
+        
+        // Hay que poner el botón en mi barra de navegación
+        self.navigationItem.leftBarButtonItem = svc.displayModeButtonItem;
+        
+    }else if (displayMode == UISplitViewControllerDisplayModeAllVisible){
+        
+        // Hay que quitar el botón de la barra de navegación
+        self.navigationItem.leftBarButtonItem = nil;
+    }
 }
-*/
+
+#pragma mark - wordsTableViewControllerDelegate
+-(void) wordsTableViewController:(VOSWordsTableViewController *) dictVC didSelectword:(NSString *) aWord{
+    self.word = aWord;
+    self.title = aWord;
+
+    [self.activityView startAnimating];
+    [self.activityView setHidden:NO];
+
+    [self.browser loadRequest:[self definitionRequestForWord:aWord]];
+    
+}
 
 @end

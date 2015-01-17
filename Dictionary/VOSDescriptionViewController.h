@@ -9,7 +9,7 @@
 @import UIKit;
 #import "VOSWordsTableViewController.h"
 
-@interface VOSDescriptionViewController : UIViewController <UIWebViewDelegate, VOSWordsTableViewControllerDelegate, UISplitViewControllerDelegate>
+@interface VOSDescriptionViewController : UIViewController <UIWebViewDelegate, wordsTableViewControllerDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) NSString * word;
 
