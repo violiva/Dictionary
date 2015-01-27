@@ -48,7 +48,6 @@
     [self.browser loadRequest:[self definitionRequestForWord:[self word]]];
 }
 
-
 -(NSURLRequest *) definitionRequestForWord: (NSString *) aWord{
     NSURL *url = [NSURL URLWithString:
                   [NSString stringWithFormat:@"http://www.merriam-webster.com/dictionary/%@", aWord]];
